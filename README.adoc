@@ -1,4 +1,4 @@
-== Apache KafkaRecipes ==
+== Apache Kafka Recipes ==
 
 This project provides sample recipes for usage of Apache Kafka Message broker.
 

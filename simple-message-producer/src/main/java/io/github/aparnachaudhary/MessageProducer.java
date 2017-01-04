@@ -1,5 +1,6 @@
 package io.github.aparnachaudhary;
 
+import java.util.Date;
 import java.util.Properties;
 
 import org.apache.kafka.clients.producer.Callback;
@@ -10,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Simple message producer for Kafka
+ * Simple message producer for Kafka. It sends a message to "greetingTopic" with key as "messageId".
  *
  * @author aparna
  * @since 04.01.2017
@@ -29,7 +30,7 @@ public class MessageProducer {
             producer = new KafkaProducer<String, String>(properties);
             final String topic = "greetingTopic";
             final ProducerRecord<String, String> dataRecord = new ProducerRecord<>(topic, "messageId",
-                    "Hello World");
+                    "Hello World " + new Date().toString());
             producer.send(dataRecord, new SimpleProducerCallback());
         } catch (final Exception e) {
             LOGGER.error("Failed to dispatch message", e);

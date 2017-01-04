@@ -8,6 +8,24 @@ This project provides sample recipes for usage of Apache Kafka Message broker.
 * Apache ZooKeeper 3.4.9
 * JDK 8
 
+=== Setup ===
+
+To execute the samples, we need to first get ZooKeeper and Kafka up and running.
+
+* Start ZooKeeper
+
+[source,bash]
+----
+$KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties
+----
+
+* Start Kafka
+
+[source,bash]
+----
+$KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties
+----
+
 === Examples Recipes ===
 * link:simple-message-producer/README.adoc[Dispatch message to Kafka Topic]
 

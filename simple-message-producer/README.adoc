@@ -1,3 +1,13 @@
 == Simple Message Producer ==
 
 Demonstrates how to dispatch message to Kafka Topic using Java API.
+
+
+=== Listing messages from the topic ===
+
+To verify if the message is dispatched successfully to the topic, we can use following script.
+
+[source,bash]
+----
+$KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic greetingTopic --from-beginning
+----

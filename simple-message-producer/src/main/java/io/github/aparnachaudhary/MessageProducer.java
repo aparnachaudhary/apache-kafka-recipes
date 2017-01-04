@@ -6,6 +6,8 @@ import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Simple message producer for Kafka
@@ -14,6 +16,8 @@ import org.apache.kafka.clients.producer.RecordMetadata;
  * @since 04.01.2017
  */
 public class MessageProducer {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(MessageProducer.class);
 
     public static void main(final String[] args) {
         final Properties properties = new Properties();
@@ -28,7 +32,7 @@ public class MessageProducer {
                     "Hello World");
             producer.send(dataRecord, new SimpleProducerCallback());
         } catch (final Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Failed to dispatch message", e);
         } finally {
             producer.close();
         }
@@ -38,10 +42,10 @@ public class MessageProducer {
         @Override
         public void onCompletion(final RecordMetadata recordMetadata, final Exception e) {
             if (e != null) {
-                e.printStackTrace();
+                LOGGER.error("Message dispatch was not successful", e);
             } else {
-                System.out.println("RecordMetadata: Topic: " + recordMetadata.topic() + " Offset: " + recordMetadata
-                        .offset() + " Partition: " + recordMetadata.partition());
+                LOGGER.info("RecordMetadata: Topic: {} Offset: {} Partition: {}", recordMetadata.topic(),
+                        recordMetadata.offset(), recordMetadata.partition());
             }
         }
     }

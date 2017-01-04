@@ -13,7 +13,7 @@
     <modules>
         <module>simple-message-producer</module>
     </modules>
-    
+
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -28,6 +28,7 @@
         <version.kafka>0.10.1.0</version.kafka>
         <version.junit>4.11</version.junit>
         <version.maven-compiler-plugin>3.3</version.maven-compiler-plugin>
+        <version.slf4j-api>1.7.7</version.slf4j-api>
     </properties>
 
     <dependencyManagement>
@@ -36,6 +37,16 @@
                 <groupId>org.apache.kafka</groupId>
                 <artifactId>kafka-clients</artifactId>
                 <version>${version.kafka}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${version.slf4j-api}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${version.slf4j-api}</version>
             </dependency>
             <dependency>
                 <groupId>junit</groupId>

@@ -1,0 +1,17 @@
+== Avro Message Producer ==
+
+Demonstrates how to dispatch Avro message making use of Schema Registry to Kafka Topic using Java API.
+
+
+
+For Windows users, unfortunately Confluent does not ship executable to start Schema Registry. You can use following
+command to start schema registry.
+[source]
+----
+SET CONFLUENT_HOME=C:\dev\tools\confluent-3.1.1
+java -Xmx512M -server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35 -XX:+DisableExplicitGC -Djava.awt.headless=true -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dlog4j.configuration=file;%CONFLUENT_HOME%\\etc\schema-registry\log4j.properties -cp ;%CONFLUENT_HOME%\package-schema-registry\target\kafka-schema-registry-package-*-development\share\java\schema-registry\*;%CONFLUENT_HOME%\share\java\confluent-common\*;%CONFLUENT_HOME%\share\java\rest-utils\*;%CONFLUENT_HOME%\share\java\schema-registry\* io.confluent.kafka.schemaregistry.rest.SchemaRegistryMain %CONFLUENT_HOME%\etc\schema-registry\schema-registry.properties
+----
+
+
+=== Avro Schema Definition ===
+

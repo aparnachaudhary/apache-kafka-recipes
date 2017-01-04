@@ -1,0 +1,10 @@
+{"namespace": "GreetingDemo.avro",
+  "type": "record",
+  "name": "Greeting",
+  "fields": [
+    {"name": "id", "type": "string"},
+    {"name": "timestamp",  "type": "string"},
+    {"name": "name",  "type": "string"},
+    {"name": "message",  "type": "string"}
+  ]
+}

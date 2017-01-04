@@ -1,0 +1,14 @@
+== Apache KafkaRecipes ==
+
+This project provides sample recipes for usage of Apache Kafka Message broker.
+
+=== Requirements: ===
+* Apache Maven version 3
+* Apache Kafka 0.10.1.1
+* Apache ZooKeeper 3.4.9
+* JDK 8
+
+=== Licensing and Copyright: ===
+
+The project is licensed under the http://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
+

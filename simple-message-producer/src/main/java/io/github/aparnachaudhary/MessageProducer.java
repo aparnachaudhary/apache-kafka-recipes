@@ -18,14 +18,13 @@ public class MessageProducer {
     public static void main(final String[] args) {
         final Properties properties = new Properties();
         properties.put("bootstrap.servers", "localhost:9092");
-        properties.put("acks", "all");
-        properties.put("linger.ms", "3");
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         KafkaProducer producer = null;
         try {
             producer = new KafkaProducer<String, String>(properties);
-            final ProducerRecord<String, String> dataRecord = new ProducerRecord<>("greetingTopic", "messageId",
+            final String topic = "greetingTopic";
+            final ProducerRecord<String, String> dataRecord = new ProducerRecord<>(topic, "messageId",
                     "Hello World");
             producer.send(dataRecord, new SimpleProducerCallback());
         } catch (final Exception e) {

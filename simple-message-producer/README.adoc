@@ -1,0 +1,3 @@
+== Simple Message Producer ==
+
+Demonstrates how to dispatch message to Kafka Topic using Java API.

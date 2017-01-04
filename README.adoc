@@ -8,6 +8,10 @@ This project provides sample recipes for usage of Apache Kafka Message broker.
 * Apache ZooKeeper 3.4.9
 * JDK 8
 
+=== Examples Recipes ===
+* link:simple-message-producer/README.adoc[Dispatch message to Kafka Topic]
+
+
 === Licensing and Copyright: ===
 
 The project is licensed under the http://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]

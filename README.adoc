@@ -5,7 +5,6 @@ This project provides sample recipes for usage of Apache Kafka Message broker.
 === Requirements: ===
 * Apache Maven version 3
 * Apache Kafka 0.10.1.1
-* Apache ZooKeeper 3.4.9
 * JDK 8
 
 === Setup ===
@@ -30,6 +29,7 @@ $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties
 * link:simple-message-producer/README.adoc[Recipe-01] - Dispatch message to Kafka Topic
 * link:simple-message-consumer/README.adoc[Recipe-02] - Receive message from Kafka Topic
 * link:avro-message-producer/README.adoc[Recipe-03] - Dispatch Avro message to Kafka Topic
+* link:avro-message-consumer/README.adoc[Recipe-04] - Receive Avro message from Kafka Topic
 
 
 === Licensing and Copyright: ===

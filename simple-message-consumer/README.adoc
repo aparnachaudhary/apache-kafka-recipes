@@ -1,0 +1,9 @@
+== Simple Message Consumer ==
+
+Demonstrates how to receive messages from Kafka Topic using Java API.
+
+
+=== Dispatching messages to the topic ===
+
+To dispatch the message to the topic, we can use link:../simple-message-producer/README.adoc[Dispatch message to Kafka
+Topic].

@@ -27,7 +27,9 @@ $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties
 ----
 
 === Examples Recipes ===
-* link:simple-message-producer/README.adoc[Dispatch message to Kafka Topic]
+* link:simple-message-producer/README.adoc[Recipe-01] - Dispatch message to Kafka Topic
+* link:simple-message-consumer/README.adoc[Recipe-02] - Receive message from Kafka Topic
+* link:avro-message-producer/README.adoc[Recipe-03] - Dispatch Avro message to Kafka Topic
 
 
 === Licensing and Copyright: ===

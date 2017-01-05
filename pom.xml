@@ -13,6 +13,7 @@
     <modules>
         <module>simple-message-producer</module>
         <module>avro-message-producer</module>
+        <module>simple-message-consumer</module>
     </modules>
 
     <repositories>

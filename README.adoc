@@ -7,7 +7,26 @@ This project provides sample recipes for usage of Apache Kafka Message broker.
 * Apache Kafka 0.10.1.1
 * JDK 8
 
-=== Setup ===
+=== Quickstart: ===
+
+==== Installation: ====
+
+Clone the repository using command
+[source]
+----
+git clone git://github.com/aparnachaudhary/apache-kafka-recipes.git
+----
+
+==== Building: ====
+image::https://travis-ci.org/aparnachaudhary/apache-kafka-recipes.png?branch=master["Build Status", link="https://travis-ci.org/aparnachaudhary/apache-kafka-recipes"]
+
+To build, issue this from the command line:
+[source]
+----
+mvn clean install
+----
+
+==== Setup Kafka ====
 
 To execute the samples, we need to first get ZooKeeper and Kafka up and running.
 
@@ -31,6 +50,10 @@ $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties
 * link:avro-message-producer/README.adoc[Recipe-03] - Dispatch Avro message to Kafka Topic
 * link:avro-message-consumer/README.adoc[Recipe-04] - Receive Avro message from Kafka Topic
 
+
+=== Feedback: ===
+
+Please feel free to raise bug reports or feature requests here https://github.com/aparnachaudhary/apache-kafka-recipes/issues?state=open[Issues].
 
 === Licensing and Copyright: ===
 

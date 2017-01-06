@@ -2,9 +2,9 @@
 
 Demonstrates how to consume Avro message making use of Schema Registry to Kafka Topic using Java API.
 
+=== Setup ===
 
-
-For Windows users, unfortunately Confluent does not ship executable to start Schema Registry. You can use following
+For Windows users, unfortunately Confluent does not ship the executable to start Schema Registry. You can use following
 command to start schema registry.
 [source]
 ----
@@ -15,3 +15,42 @@ java -Xmx512M -server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOcc
 
 === Avro Schema Definition ===
 
+[source,json]
+----
+{"namespace": "GreetingDemo.avro",
+  "type": "record",
+  "name": "Greeting",
+  "fields": [
+    {"name": "id", "type": "string"},
+    {"name": "timestamp",  "type": "string"},
+    {"name": "name",  "type": "string"},
+    {"name": "message",  "type": "string"}
+  ]
+}
+----
+
+
+=== Execute the consumer sample ===
+
+Execute the sample consumer using Maven. It assumes that the ZooKeeper, Kafka and SchemaRegistry
+are running on localhost on default ports.
+
+[source,bash]
+----
+mvn exec:java
+----
+
+If you want to override the schema registry URL, use following command.
+
+[source,bash]
+----
+mvn exec:java -Dschema.registry.url=http://otherhost:8081
+----
+
+
+Alternatively, you can build the project and execute the sample JAR file.
+
+[source,bash]
+----
+java -jar avro-message-consumer.jar
+----

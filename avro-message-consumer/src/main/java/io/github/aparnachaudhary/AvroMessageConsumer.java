@@ -22,15 +22,15 @@ public class AvroMessageConsumer {
 
     public static void main(final String[] args) {
         final Properties properties = new Properties();
-        properties.put("bootstrap.servers", "localhost:9092");
-        properties.put("schema.registry.url", "http://localhost:8081");
+        properties.put("bootstrap.servers", System.getProperty("bootstrap.servers", "localhost:9092"));
+        properties.put("schema.registry.url", System.getProperty("schema.registry.url", "http://localhost:8081"));
         properties.put("key.deserializer", "io.confluent.kafka.serializers.KafkaAvroDeserializer");
         properties.put("value.deserializer", "io.confluent.kafka.serializers.KafkaAvroDeserializer");
-        properties.put("group.id", "TEAM-B");
+        properties.put("group.id", System.getProperty("group.id", "TEAM-B"));
 
         KafkaConsumer consumer = null;
         try {
-            final String topic = "avroGreetings";
+            final String topic = System.getProperty("topicName", "avroGreetings");
             consumer = new KafkaConsumer<String, String>(properties);
             consumer.subscribe(Collections.singletonList(topic));
 

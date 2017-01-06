@@ -21,14 +21,14 @@ public class MessageConsumer {
 
     public static void main(final String[] args) {
         final Properties properties = new Properties();
-        properties.put("bootstrap.servers", "localhost:9092");
+        properties.put("bootstrap.servers", System.getProperty("bootstrap.servers", "localhost:9092"));
         properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        properties.put("group.id", "TEAM-A");
+        properties.put("group.id", System.getProperty("group.id", "TEAM-A"));
         KafkaConsumer consumer = null;
         try {
             consumer = new KafkaConsumer<String, String>(properties);
-            final String topic = "greetingTopic";
+            final String topic = System.getProperty("topicName", "greetingTopic");
             consumer.subscribe(Collections.singletonList(topic));
 
             while (true) {

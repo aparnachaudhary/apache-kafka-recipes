@@ -38,8 +38,11 @@
         <version.confluent>3.1.1</version.confluent>
         <version.avro>1.7.7</version.avro>
         <version.junit>4.11</version.junit>
-        <version.maven-compiler-plugin>3.3</version.maven-compiler-plugin>
         <version.slf4j-api>1.7.7</version.slf4j-api>
+        <!-- plugin versions -->
+        <version.maven-compiler-plugin>3.3</version.maven-compiler-plugin>
+        <version.maven-shade-plugin>2.4.3</version.maven-shade-plugin>
+        <version.exec.plugin>1.5.0</version.exec.plugin>
     </properties>
 
     <dependencyManagement>
@@ -78,6 +81,34 @@
         </dependencies>
     </dependencyManagement>
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>${version.maven-shade-plugin}</version>
+                    <configuration>
+                        <!-- put your configurations here -->
+                        <shadedArtifactAttached>true</shadedArtifactAttached>
+                        <shadedClassifierName>flatjar</shadedClassifierName>
+                        <finalName>${project.artifactId}</finalName>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>${version.exec.plugin}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

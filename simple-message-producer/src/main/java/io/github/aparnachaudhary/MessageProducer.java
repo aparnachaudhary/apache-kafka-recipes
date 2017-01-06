@@ -22,13 +22,13 @@ public class MessageProducer {
 
     public static void main(final String[] args) {
         final Properties properties = new Properties();
-        properties.put("bootstrap.servers", "localhost:9092");
+        properties.put("bootstrap.servers", System.getProperty("bootstrap.servers", "localhost:9092"));
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         KafkaProducer producer = null;
         try {
             producer = new KafkaProducer<String, String>(properties);
-            final String topic = "greetingTopic";
+            final String topic = System.getProperty("topicName", "greetingTopic");
             final ProducerRecord<String, String> dataRecord = new ProducerRecord<>(topic, "messageId",
                     "Hello World " + new Date().toString());
             producer.send(dataRecord, new SimpleProducerCallback());

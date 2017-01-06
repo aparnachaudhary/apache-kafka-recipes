@@ -23,15 +23,15 @@ public class AvroMessageProducer {
 
     public static void main(final String[] args) {
         final Properties properties = new Properties();
-        properties.put("bootstrap.servers", "localhost:9092");
-        properties.put("schema.registry.url", "http://localhost:8081");
+        properties.put("bootstrap.servers", System.getProperty("bootstrap.servers", "localhost:9092"));
+        properties.put("schema.registry.url", System.getProperty("schema.registry.url", "http://localhost:8081"));
         properties.put("key.serializer", "io.confluent.kafka.serializers.KafkaAvroSerializer");
         properties.put("value.serializer", "io.confluent.kafka.serializers.KafkaAvroSerializer");
 
         KafkaProducer producer = null;
         try {
             producer = new KafkaProducer<String, String>(properties);
-            final String topic = "avroGreetings";
+            final String topic = System.getProperty("topicName", "avroGreetings");
             final Greeting greeting = new Greeting("NL", new Date().toString(), "Aparna", "Say Hello");
             final ProducerRecord<String, Greeting> dataRecord = new ProducerRecord<>(topic, greeting
                     .getId().toString(), greeting);

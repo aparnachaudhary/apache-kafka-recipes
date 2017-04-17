@@ -1,0 +1,4 @@
+spring.kafka:
+  consumer:
+    group-id : TEAM-B
+    auto-offset-reset: earliest

@@ -16,6 +16,7 @@
         <module>simple-message-consumer</module>
         <module>avro-message-consumer</module>
         <module>custom-partition-message-producer</module>
+        <module>spring-boot-kafka</module>
     </modules>
 
     <repositories>

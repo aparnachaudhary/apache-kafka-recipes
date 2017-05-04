@@ -1,0 +1,16 @@
+= Spring Boot Kafka Example
+
+Demonstrates how to send/receive text messages using Spring Boot Kafka.
+
+Starting Kafka with Confluent Platform:
+
+[source,bash]
+----
+$CONFLUENT_HOME/bin/zookeeper-server-start etc/kafka/zookeeper.properties
+----
+
+
+[source,bash]
+----
+$CONFLUENT_HOME/bin/kafka-server-start etc/kafka/server.properties
+----

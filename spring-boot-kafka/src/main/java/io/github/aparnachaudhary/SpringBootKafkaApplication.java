@@ -15,31 +15,31 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
-public class SpringBootKafkaApplication implements CommandLineRunner{
+public class SpringBootKafkaApplication implements CommandLineRunner {
 
-	public static Logger LOGGER = LoggerFactory.getLogger(SpringBootKafkaApplication.class);
+    public static Logger LOGGER = LoggerFactory.getLogger(SpringBootKafkaApplication.class);
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringBootKafkaApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootKafkaApplication.class, args);
+    }
 
-	private final CountDownLatch latch = new CountDownLatch(3);
+    private final CountDownLatch latch = new CountDownLatch(3);
 
-	@Autowired
-	private KafkaTemplate<String, String> template;
+    @Autowired
+    private KafkaTemplate<String, String> template;
 
-	@Override
-	public void run(String... args) throws Exception {
-		this.template.send("greetingTopic", "messageId", "Hello World " + new Date().toString());
-		this.template.send("greetingTopic", "messageId", "Hello World " + new Date().toString());
-		this.template.send("greetingTopic", "messageId", "Hello World " + new Date().toString());
-		latch.await(60, TimeUnit.SECONDS);
-		LOGGER.info("All dispatched");
-	}
+    @Override
+    public void run(String... args) throws Exception {
+        this.template.send("greetingTopic", "messageId", "Hello World " + new Date().toString());
+        this.template.send("greetingTopic", "messageId", "Hello World " + new Date().toString());
+        this.template.send("greetingTopic", "messageId", "Hello World " + new Date().toString());
+        latch.await(60, TimeUnit.SECONDS);
+        LOGGER.info("All dispatched");
+    }
 
-	@KafkaListener(topics = "greetingTopic")
-	public void listen(ConsumerRecord<?, ?> cr) throws Exception {
-		LOGGER.info(cr.toString());
-		latch.countDown();
-	}
+    @KafkaListener(topics = "greetingTopic")
+    public void listen(ConsumerRecord<?, ?> cr) throws Exception {
+        LOGGER.info(cr.toString());
+        latch.countDown();
+    }
 }

@@ -50,6 +50,7 @@ $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties
 * link:avro-message-producer/README.adoc[Recipe-03] - Dispatch Avro message to Kafka Topic
 * link:avro-message-consumer/README.adoc[Recipe-04] - Receive Avro message from Kafka Topic
 * link:custom-partition-message-producer/README.adoc[Recipe-05] - Custom partition assignment
+* link:spring-boot-kafka/README.adoc[Recipe-06] - Spring Boot Kafka Message Sender/Receiver
 
 
 === Feedback: ===
